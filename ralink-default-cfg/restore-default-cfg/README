@@ -1,0 +1,12 @@
+#1 Read device config block
+# cat /dev/mtdblock5 > /tmp/cfg-block
+
+#2 Make config block files
+$ python cfg.py
+
+#3 Add file to /dev/mtdblock5
+dd if=FILE of=/dev/mtdblock5
+
+#4 Check if helped
+$ sysconf -t active --list
+$ sysconf -t backup --list
